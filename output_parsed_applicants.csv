@@ -1,0 +1,4 @@
+file_name,year_of_experience,total_keyword_score,keywords,,,,,,,,
+Test-resume-dan-smith.docx,23,54,{'java': 17, 'javascript': 1, 'maven': 5, 'web': 10, 'agile': 3, 'web service': 7, 'web services': 6, 'project manager': 4, 'computer science': 1}
+Test-resume-John-smith.docx,7,15,{'java': 3, 'angularjs': 1, 'javascript': 1, 'maven': 2, 'web': 3, 'agile': 2, 'web service': 2, 'web services': 1},
+Test-resume-peter.pdf,7,13,{'java': 1, 'angularjs': 1, 'javascript': 1, 'maven': 2, 'web': 3, 'agile': 2, 'web service': 2, 'web services': 1},
