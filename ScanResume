@@ -25,6 +25,7 @@ job_skill_phrase_keywords = ["REST service", "REST services", "Web Service", "We
 remove_string = [",", "\n", ".", "•"]
 
 degree = ["bachelor", "master", "doctor"]
+max_year_work_experience = 30
 
 #parse to find years from resume, to determine how many years work experience.
 # error 4 -8 years, because year of high school, college is possiblly included in a resume
@@ -35,15 +36,16 @@ def get_current_year():
     current_year = today.year
     return current_year
 
+
 def get_year_of_experience(text):
     text1 = "project: big data (feb 2016 – now)   environment and tools 2000 2022"
-    year_match = re.findall(r'([1-3][0-9]{3})', text)
+    year_match = re.findall(r"[0-9]{4}(?![0-9])", text)
     year_list = []
     year_of_work_experience = 0;
     for year in year_match:
         year = year.strip()
         #print(year)
-        if len(year) == 4 and int(year) > 1982 and int(year) < (2023):
+        if int(year) > (get_current_year() - max_year_work_experience ) and int(year) <= get_current_year():
             year_list.append(year)
 
     if len(year_list) > 0:
