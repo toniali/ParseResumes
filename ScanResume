@@ -14,6 +14,12 @@ from pdfminer.high_level import extract_text
 
 import datetime
 
+###
+# input resume folder Path
+input_file_path = "C:\\projects\\python\\resume_data"
+#output file path and name
+output_file_path_name = "C:\\temp\\output_parsed_applicants.csv"
+
 #define keywords
 job_skill_single_keywords = ["Java", "Node.js", "AngularJS","JavaScript", "Maven", "web", "Agile"]
 
@@ -208,13 +214,9 @@ def write_to_file (resume_pool_dictionary):
 
     try:
         count = 0
-        output_file = open("output_parsed_applicants.csv", "w")
-        #output_file = open("output_parsed_applicants.txt", "w")
 
-        #output_file.write(str(buffer_str))
-        #print(buffer_str)
+        output_file = open(output_file_path_name, "w")
 
-        #print(print_header(resume_pool_dictionary))
         output_file.write(print_header(resume_pool_dictionary))
         #end for record loop
     except Exception as e:
@@ -228,11 +230,10 @@ def write_to_file (resume_pool_dictionary):
 
 #define
 resume_pool_dictionary = []
-# Folder Path
-path = "C:\\projects\\python\\resume_data"
+
 
 # Change the directory
-os.chdir(path)
+os.chdir(input_file_path)
 
 
 # iterate through all file
@@ -240,7 +241,7 @@ for file in os.listdir():
     #print("************file name:" + file)
     # Check whether file is in text format or not
     if file.endswith(".pdf"):
-        file_path = f"{path}\{file}"
+        file_path = f"{input_file_path}\{file}"
 
         # call read text file function
         #read_text_file(file_path)
@@ -249,7 +250,7 @@ for file in os.listdir():
             resume_pool_dictionary.append(read_file_computing(text))
 
     if file.endswith(".docx"):
-        file_path = f"{path}\{file}"
+        file_path = f"{input_file_path}\{file}"
 
         # call read text file function
         # read_text_file(file_path)
